@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,4 +9,14 @@ public class Input : MonoBehaviour
     private void Awake() => _playerInput = GetComponent<PlayerInput>();
     
     public static Vector2 Movement => _playerInput.actions["Movement"].ReadValue<Vector2>();
+    
+    public static event Action OnFire;
+
+    public void Fire(InputAction.CallbackContext context) => PerformAction(context, OnFire);
+    
+    private void PerformAction(InputAction.CallbackContext context, Action action)
+    {
+        if (context.performed)
+            action?.Invoke();
+    }
 }
