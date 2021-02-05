@@ -9,7 +9,7 @@ public class Projectile : PooledObject<Projectile>
     private Rigidbody _rigidbody;
     private float _endTime;
     
-    private void Start()
+    private void OnEnable()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.velocity = transform.up * speed;
