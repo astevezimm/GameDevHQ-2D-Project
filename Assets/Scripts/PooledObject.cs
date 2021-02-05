@@ -17,10 +17,6 @@ public abstract class PooledObject<T> : MonoBehaviour where T : PooledObject<T>
         obj.gameObject.SetActive(true);
         if (source != null)
             obj.transform.SetPositionAndRotation(source.position, source.rotation);
-        Debug.Log(CurrentPoolSize);
-        Debug.Log(obj);
-        Debug.Log(obj.gameObject);
-        Debug.Log(obj.gameObject.activeSelf);
         return obj;
     }
 
