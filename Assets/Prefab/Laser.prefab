@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8195301669655401898}
   - component: {fileID: 3902472005107822030}
   - component: {fileID: 3448483774312765432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,3 +129,4 @@ MonoBehaviour:
   poolSize: 25
   speed: 10
   timeOut: 5
+  direction: {x: 0, y: 1, z: 0}
