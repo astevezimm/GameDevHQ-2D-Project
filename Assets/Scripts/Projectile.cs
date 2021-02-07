@@ -24,5 +24,9 @@ public class Projectile : PooledObject<Projectile>
             Return();
     }
 
-    private void OnTriggerEnter(Collider other) => Return();
+    private void OnTriggerEnter(Collider other)
+    {
+        other.GetComponent<EnemyDamage>()?.TakeDamage();
+        Return();
+    }
 }
