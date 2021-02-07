@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 1;
+    [SerializeField] private float speed = 5;
     [SerializeField] private float minY = -4.5f;
     [SerializeField] private float maxY = 0;
     [SerializeField] private float xRange = 9.5f;

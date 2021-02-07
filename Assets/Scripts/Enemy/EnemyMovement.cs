@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float speed = 5;
+    [SerializeField] private float bottom = -6f;
+    
+    private Rigidbody _rigidbody;
+    
+    private void Awake()
     {
-        
+        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.velocity = Vector3.down * speed;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    /*todo private void Update()
     {
-        
-    }
+        if at bottom
+            Return();
+    }*/
 }

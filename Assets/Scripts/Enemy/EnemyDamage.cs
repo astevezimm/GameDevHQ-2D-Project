@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private const int PLAYER = 6;
+    
+    public void TakeDamage()
     {
-        
+        //todo Return();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        other.GetComponent<PlayerDamage>()?.TakeDamage();
+        TakeDamage();
     }
 }
