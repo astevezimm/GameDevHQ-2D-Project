@@ -4,19 +4,30 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5;
-    [SerializeField] private float bottom = -6f;
+    [SerializeField] private float bottom = -6;
+    [SerializeField] private float top = 6;
+    [SerializeField] private float xSpawnRange = 9;
     
     private Rigidbody _rigidbody;
+    private Transform _transform;
     
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.velocity = Vector3.down * speed;
+        _transform = transform;
     }
     
-    /*todo private void Update()
+    private void Update()
     {
-        if at bottom
-            Send to top
-    }*/
+        if (_transform.position.y < bottom)
+            Reset();
+    }
+
+    public void Reset()
+    {
+        _transform.position = new Vector3(RandX(), top);
+    }
+
+    private float RandX() => Random.Range(-xSpawnRange, xSpawnRange);
 }
