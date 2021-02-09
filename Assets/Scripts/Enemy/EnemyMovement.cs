@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private float bottom = -6;
     [SerializeField] private float top = 6;
-    [SerializeField] private float xSpawnRange = 9;
+    [SerializeField] private float xSpawnRange = 9.5f;
     
     private Rigidbody _rigidbody;
     private Transform _transform;

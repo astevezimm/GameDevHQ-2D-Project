@@ -7,6 +7,6 @@ public class PlayerDamage : MonoBehaviour
     public void TakeDamage()
     {
         lives--;
-        // check for death
+        //todo check for death
     }
 }
