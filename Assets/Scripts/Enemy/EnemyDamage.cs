@@ -9,7 +9,7 @@ public class EnemyDamage : MonoBehaviour
 
     public void TakeDamage() => _pool.Return();
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.TryGetComponent(out PlayerDamage playerDamage))
             return;
