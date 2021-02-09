@@ -11,18 +11,17 @@ public class EnemySpawnManager : MonoBehaviour
     private void Start()
     {
         _waitForSeconds = new WaitForSeconds(interval);
-        StartCoroutine(Spawn());
+        Coroutine spawn = StartCoroutine(Spawn());
+        GameManager.OnPlayerDeath += () => StopCoroutine(spawn);
+        //todo GameManager.OnRestart startcoroutine
     }
 
     private IEnumerator Spawn()
     {
         while (true)
         {
-            if (true /*check for player death*/)
-            {
-                Enemy enemy = enemyPrefab.Get();
-                enemy.Movement.Reset();
-            }
+            Enemy enemy = enemyPrefab.Get();
+            enemy.Movement.Reset();
             yield return _waitForSeconds;
         }
     }

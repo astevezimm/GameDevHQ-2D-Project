@@ -6,8 +6,12 @@ public class Input : MonoBehaviour
 {
     private static PlayerInput _playerInput;
     
-    private void Awake() => _playerInput = GetComponent<PlayerInput>();
-    
+    private void Awake()
+    {
+        _playerInput = GetComponent<PlayerInput>();
+        GameManager.OnPlayerDeath += () => gameObject.SetActive(false);
+    }
+
     public static Vector2 Movement => _playerInput.actions["Movement"].ReadValue<Vector2>();
     
     public static event Action OnFire;
