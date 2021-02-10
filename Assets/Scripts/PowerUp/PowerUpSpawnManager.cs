@@ -4,13 +4,15 @@ using UnityEngine;
 public class PowerUpSpawnManager : MonoBehaviour
 {
     [SerializeField] private PowerUp powerUpPrefab;
-    [SerializeField] private float interval = 7;
+    [SerializeField] private float minInterval = 3;
+    [SerializeField] private float maxInterval = 7;
 
-    private WaitForSeconds _waitForSeconds;
+    private WaitUntil _waitUntil;
+    private float _nextSpawnTime = 7;
 
     private void Start()
     {
-        _waitForSeconds = new WaitForSeconds(interval);
+        _waitUntil = new WaitUntil(RandomInterval);
         Coroutine spawn = StartCoroutine(Spawn());
         GameManager.OnPlayerDeath += () => StopCoroutine(spawn);
         //todo GameManager.OnRestart startcoroutine
@@ -20,9 +22,17 @@ public class PowerUpSpawnManager : MonoBehaviour
     {
         while (true)
         {
-            yield return _waitForSeconds;
+            yield return _waitUntil;
             PowerUp powerUp = powerUpPrefab.Get();
             powerUp.Reset();
         }
+    }
+
+    private bool RandomInterval()
+    {
+        if (Time.time < _nextSpawnTime)
+            return false;
+        _nextSpawnTime += Random.Range(minInterval, maxInterval);
+        return true;
     }
 }
