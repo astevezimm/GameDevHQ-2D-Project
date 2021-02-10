@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5575754558605500190}
   - component: {fileID: 5078291243695924369}
   - component: {fileID: 8397733128230517961}
+  - component: {fileID: 3859932547102085256}
   m_Layer: 8
   m_Name: TripShot_powerup
   m_TagString: Untagged
@@ -146,3 +147,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   bottom: -6
+--- !u!95 &3859932547102085256
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100607160465363196}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d8058b836091f24e9b43e59b6fe3776, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
