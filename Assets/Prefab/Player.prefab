@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856984033367250100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1856984034428370321}
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 3448483774312765432, guid: 68242c5260bc79e4f97f69f186bf0a88, type: 3}
+  tripleShotPrefab: {fileID: 6524889928556049237, guid: 34cb31faf13e2094eb4d5c67e27940a3, type: 3}
   source: {fileID: 1856984033367250103}
   coolDown: 0.15
 --- !u!114 &1856984034428370320
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51c37bd46f9ca448a4767537e42d3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   minY: -4.5
   maxY: 0
   xRange: 9.5

@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6445663860125741049, guid: 4b79b1f6c1c0f1243ace6f57bcbc44b4, type: 3}
-  interval: 5
+  interval: 2
 --- !u!1 &1563485541
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,17 +476,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1799045806343279196, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 1856984033367250103, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1856984033367250103, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1856984034428370320, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
-      propertyPath: speed
-      value: 7
+    - target: {fileID: 1856984033367250103, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1856984034428370321, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
       propertyPath: m_RootOrder

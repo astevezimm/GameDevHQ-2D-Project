@@ -3,10 +3,12 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
     [SerializeField] private Projectile laserPrefab;
+    [SerializeField] private TripleShot tripleShotPrefab;
     [SerializeField] private Transform source;
     [SerializeField] private float coolDown = 0.15f;
 
     private float _nextFire = -1;
+    private bool _tripleShotActive = false;
     
     private void Awake() => Input.OnFire += HandleFire;
 
@@ -14,7 +16,10 @@ public class PlayerFire : MonoBehaviour
     {
         if (Time.time < _nextFire)
             return;
-        laserPrefab.Get(source);
+        if (_tripleShotActive)
+            tripleShotPrefab.Get(source);
+        else
+            laserPrefab.Get(source);
         _nextFire = Time.time + coolDown;
     }
 }

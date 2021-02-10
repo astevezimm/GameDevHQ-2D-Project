@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Projectile : PooledObject<Projectile>
 {
@@ -16,13 +17,20 @@ public class Projectile : PooledObject<Projectile>
     private void Update()
     {
         _transform.Translate(direction * (speed * Time.deltaTime));
-        if (Time.time  > _endTime)
+        if (Time.time > _endTime)
             Return();
     }
+}
+
+public class ProjectileDamage : MonoBehaviour
+{
+    private Projectile _projectile;
+
+    private void Awake() => _projectile = transform.parent.GetComponentInChildren<Projectile>();
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         other.GetComponent<EnemyDamage>()?.TakeDamage();
-        Return();
+        _projectile.Return();
     }
 }
