@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour
+public class PowerUp : PooledObject<PowerUp>
 {
     [SerializeField] private float speed = 3;
     [SerializeField] private float bottom = -6;
+    [SerializeField] private float top = 6;
+    [SerializeField] private float xSpawnRange = 9.5f;
     
     private Transform _transform;
 
@@ -21,4 +23,11 @@ public class PowerUp : MonoBehaviour
         other.GetComponent<PlayerFire>().ActivateTripleShot();
         gameObject.SetActive(false);
     }
+    
+    public void Reset()
+    {
+        _transform.position = new Vector3(RandX(), top);
+    }
+
+    private float RandX() => Random.Range(-xSpawnRange, xSpawnRange);
 }
