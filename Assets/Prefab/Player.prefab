@@ -155,10 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6beee68207dfc0e4999562c68132c84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserPrefab: {fileID: 3448483774312765432, guid: 68242c5260bc79e4f97f69f186bf0a88, type: 3}
-  tripleShotPrefab: {fileID: 6524889928556049237, guid: 34cb31faf13e2094eb4d5c67e27940a3, type: 3}
+  laserPrefab: {fileID: 1663342777522697419, guid: bb7dd6c34faddf74e926c4b83147f93f, type: 3}
   source: {fileID: 1856984033367250103}
   coolDown: 0.15
+  tripleShotCoolDown: 5
 --- !u!114 &1856984034428370320
 MonoBehaviour:
   m_ObjectHideFlags: 0

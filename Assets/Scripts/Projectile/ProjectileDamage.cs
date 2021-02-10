@@ -6,9 +6,9 @@ public class ProjectileDamage : MonoBehaviour
 
     private void Awake()
     {
-        _projectile = GetComponent<Projectile>();
+        _projectile = transform.parent.GetComponent<Projectile>();
         if (_projectile == null)
-            _projectile = transform.parent.GetComponent<Projectile>();
+            _projectile = transform.parent.parent.GetComponent<Projectile>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
