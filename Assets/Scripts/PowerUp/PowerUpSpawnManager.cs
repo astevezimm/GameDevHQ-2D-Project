@@ -26,7 +26,7 @@ public class PowerUpSpawnManager : MonoBehaviour
         {
             yield return _waitUntil;
             PowerUp powerUp = powerUpPrefab.Get();
-            powerUp.Ready(powerUps[2]); //todo: logic to determine which power up
+            powerUp.Ready(powerUps[Random.Range(0, powerUps.Count)]);
         }
     }
 
