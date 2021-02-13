@@ -400,8 +400,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b698cabfb99f44fe81a546dfadc0e1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefab: {fileID: 8397733128230517961, guid: 9e9cf552d5caea745bc04ee439b7be68, type: 3}
-  interval: 7
+  powerUpPrefab: {fileID: 8397733128230517961, guid: 44f03593258181d409596bd8d1620b88, type: 3}
+  minInterval: 3
+  maxInterval: 7
+  powerUps:
+  - {fileID: 11400000, guid: 567cdf2a167302b49b01613feb5205a3, type: 2}
+  - {fileID: 11400000, guid: 0e341c63ab7634b4bb2f4d0898c8c8e7, type: 2}
+  - {fileID: 11400000, guid: a37a0b63470740242b4371bc79f77a89, type: 2}
 --- !u!1 &1563485541
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +496,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1856984034428370320, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
+      propertyPath: boostedSpeed
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1856984034428370321, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
       propertyPath: m_RootOrder
       value: 1

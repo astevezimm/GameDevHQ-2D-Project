@@ -145,8 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7800e856de847a78bc09d0a488f5cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  poolSize: 50
   bottom: -6
+  top: 6
+  xSpawnRange: 9.5
 --- !u!95 &3859932547102085256
 Animator:
   serializedVersion: 3
@@ -157,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 7100607160465363196}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d8058b836091f24e9b43e59b6fe3776, type: 2}
+  m_Controller: {fileID: 9100000, guid: 290b196fd1de1194e95fa39b446f6c44, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

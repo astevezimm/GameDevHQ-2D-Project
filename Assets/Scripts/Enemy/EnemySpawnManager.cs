@@ -21,7 +21,7 @@ public class EnemySpawnManager : MonoBehaviour
         while (true)
         {
             Enemy enemy = enemyPrefab.Get();
-            enemy.Movement.Reset();
+            enemy.Movement.Ready();
             yield return _waitForSeconds;
         }
     }

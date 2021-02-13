@@ -15,10 +15,10 @@ public class EnemyMovement : MonoBehaviour
     {
         _transform.Translate(Vector2.down * (speed * Time.deltaTime));
         if (_transform.position.y < bottom)
-            Reset();
+            Ready();
     }
 
-    public void Reset()
+    public void Ready()
     {
         _transform.position = new Vector3(RandX(), top);
     }
