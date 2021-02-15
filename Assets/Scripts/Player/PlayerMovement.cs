@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _transform.Translate(Input.Movement * (_speed * Time.deltaTime));
+        _transform.Translate(PlayerController.Movement * (_speed * Time.deltaTime));
         _transform.position = new Vector3(WrapX(), ClampY());
     }
 

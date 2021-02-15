@@ -8,7 +8,7 @@ public class Input : MonoBehaviour
     
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
+        _playerInput = FindObjectOfType<PlayerInput>();
         GameManager.OnPlayerDeath += () => gameObject.SetActive(false);
     }
 

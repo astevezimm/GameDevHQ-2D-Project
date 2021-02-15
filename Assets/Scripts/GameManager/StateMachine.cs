@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class StateMachine
 {
-    private IState _currentState;
+    public IState CurrentState { get; private set; }
 
     private readonly Dictionary<IState, List<StateTransition>> _transitions =
         new Dictionary<IState, List<StateTransition>>();
@@ -17,11 +17,11 @@ public class StateMachine
 
     public void Set(IState state)
     {
-        if (state == _currentState)
+        if (state == CurrentState)
             return;
-        _currentState?.OnExit();
-        _currentState = state;
-        _currentState.OnEnter();
+        CurrentState?.OnExit();
+        CurrentState = state;
+        CurrentState.OnEnter();
     }
 
     public void Tick()
@@ -29,13 +29,13 @@ public class StateMachine
         StateTransition transition = CheckForTransition();
         if (transition != null)
             Set(transition.To);
-        _currentState.Tick();
+        CurrentState.Tick();
     }
 
     private StateTransition CheckForTransition()
     {
-        if (_transitions.ContainsKey(_currentState))
-            foreach (StateTransition transition in _transitions[_currentState])
+        if (_transitions.ContainsKey(CurrentState))
+            foreach (StateTransition transition in _transitions[CurrentState])
                 if (transition.Condition())
                     return transition;
         return null;

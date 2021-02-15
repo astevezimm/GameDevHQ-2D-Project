@@ -33,6 +33,46 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""f013f871-d4ad-493a-8c1d-b2c70cd66542"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff88757e-75ca-4073-866d-f57075fbf510"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a024776-d0ae-4025-869b-5b6c4578f9f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""DontRestart"",
+                    ""type"": ""Button"",
+                    ""id"": ""e258267d-7a61-4617-9329-cd755d991cb2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""300677b5-a6b3-4559-a146-5a492ff4d9d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -156,6 +196,61 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03c93ace-89db-4c1a-ba45-5d53c20a86b6"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbb2fd7c-8852-418e-8336-78587f62e31a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab889b67-c391-4e44-acdb-df8054db3833"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12ca535e-56bc-46bf-ac46-80d1eddc298f"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""DontRestart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40eb2fed-71a7-4082-92e7-c9428213d0c3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -178,6 +273,11 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
         m_Main_Movement = m_Main.FindAction("Movement", throwIfNotFound: true);
         m_Main_Fire = m_Main.FindAction("Fire", throwIfNotFound: true);
+        m_Main_StartGame = m_Main.FindAction("StartGame", throwIfNotFound: true);
+        m_Main_Pause = m_Main.FindAction("Pause", throwIfNotFound: true);
+        m_Main_Restart = m_Main.FindAction("Restart", throwIfNotFound: true);
+        m_Main_DontRestart = m_Main.FindAction("DontRestart", throwIfNotFound: true);
+        m_Main_Quit = m_Main.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,12 +329,22 @@ public class @Controls : IInputActionCollection, IDisposable
     private IMainActions m_MainActionsCallbackInterface;
     private readonly InputAction m_Main_Movement;
     private readonly InputAction m_Main_Fire;
+    private readonly InputAction m_Main_StartGame;
+    private readonly InputAction m_Main_Pause;
+    private readonly InputAction m_Main_Restart;
+    private readonly InputAction m_Main_DontRestart;
+    private readonly InputAction m_Main_Quit;
     public struct MainActions
     {
         private @Controls m_Wrapper;
         public MainActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Main_Movement;
         public InputAction @Fire => m_Wrapper.m_Main_Fire;
+        public InputAction @StartGame => m_Wrapper.m_Main_StartGame;
+        public InputAction @Pause => m_Wrapper.m_Main_Pause;
+        public InputAction @Restart => m_Wrapper.m_Main_Restart;
+        public InputAction @DontRestart => m_Wrapper.m_Main_DontRestart;
+        public InputAction @Quit => m_Wrapper.m_Main_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -250,6 +360,21 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_MainActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnFire;
+                @StartGame.started -= m_Wrapper.m_MainActionsCallbackInterface.OnStartGame;
+                @StartGame.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnStartGame;
+                @StartGame.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnStartGame;
+                @Pause.started -= m_Wrapper.m_MainActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnPause;
+                @Restart.started -= m_Wrapper.m_MainActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnRestart;
+                @DontRestart.started -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
+                @DontRestart.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
+                @DontRestart.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
+                @Quit.started -= m_Wrapper.m_MainActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -260,6 +385,21 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @StartGame.started += instance.OnStartGame;
+                @StartGame.performed += instance.OnStartGame;
+                @StartGame.canceled += instance.OnStartGame;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
+                @DontRestart.started += instance.OnDontRestart;
+                @DontRestart.performed += instance.OnDontRestart;
+                @DontRestart.canceled += instance.OnDontRestart;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -277,5 +417,10 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnStartGame(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
+        void OnDontRestart(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

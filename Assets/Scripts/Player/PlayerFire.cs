@@ -11,7 +11,7 @@ public class PlayerFire : MonoBehaviour
     
     private void Awake()
     {
-        Input.OnFire += HandleFire;
+        PlayerController.OnFire += HandleFire;
     }
 
     private void HandleFire()

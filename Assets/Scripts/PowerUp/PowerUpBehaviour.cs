@@ -11,7 +11,7 @@ public abstract class PowerUpBehaviour
     {
         _waitUntil ??= new WaitUntil(Interval);
         _coolDownTime = Time.time + coolDown;
-        player.GetComponent<Input>().StartCoroutine(CoolDown(player));
+        player.GetComponent<PlayerController>().StartCoroutine(CoolDown(player));
     }
 
     protected abstract void Activate(Collider2D player);
