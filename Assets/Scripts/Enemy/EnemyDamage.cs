@@ -1,13 +1,20 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
 public class EnemyDamage : MonoBehaviour
 {
-    private Enemy _pool;
+    public event Action<EnemyDamage> OnEnemyDestroyed;
+    
+    private Enemy _enemy;
 
-    private void Awake() => _pool = GetComponent<Enemy>();
+    private void Awake() => _enemy = GetComponent<Enemy>();
 
-    public void TakeDamage() => _pool.Return();
+    public void TakeDamage()
+    {
+        OnEnemyDestroyed?.Invoke(this);
+        _enemy.Return();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
