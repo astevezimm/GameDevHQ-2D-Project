@@ -148,7 +148,7 @@ MonoBehaviour:
   poolSize: 50
   bottom: -6
   top: 6
-  xSpawnRange: 9.5
+  xSpawnRange: 8
 --- !u!95 &3859932547102085256
 Animator:
   serializedVersion: 3
