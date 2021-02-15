@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
+    public static event Action<int> OnLivesChanged;
     public event Action<bool> OnShieldChanged;
-    
+
     [SerializeField] private int lives = 3;
 
     private static PlayerDamage _instance;
@@ -20,6 +21,7 @@ public class PlayerDamage : MonoBehaviour
         if (_shield)
             return;
         lives = Mathf.Max(0, lives - 1);
+        OnLivesChanged?.Invoke(lives);
     }
 
     public void ActivateShield()
