@@ -16,7 +16,7 @@ public class PlayerFire : MonoBehaviour
 
     private void HandleFire()
     {
-        if (Time.time < _nextFire)
+        if (Time.time < _nextFire || PauseState.Paused)
             return;
         Projectile laser = laserPrefab.Get(source);
         if (_tripleShotActive)

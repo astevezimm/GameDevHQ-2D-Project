@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
-        GameManager.OnPlayerDeath += () => gameObject.SetActive(false);
         GameManager.OnGameStart += () => gameObject.SetActive(true);
+        GameManager.OnGameStop += () => gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 

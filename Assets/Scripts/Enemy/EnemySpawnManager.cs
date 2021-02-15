@@ -11,22 +11,20 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private float interval = 5;
 
     private WaitForSeconds _waitForSeconds;
-    private WaitUntil _waitUntilGameStart;
+    private WaitUntil _waitUntilGamePlaying;
 
     private void Start()
     {
         _waitForSeconds = new WaitForSeconds(interval);
-        _waitUntilGameStart = new WaitUntil(() => GameManager.Playing);
+        _waitUntilGamePlaying = new WaitUntil(() => GameManager.Playing);
         Coroutine spawn = StartCoroutine(Spawn());
-        GameManager.OnPlayerDeath += () => StopCoroutine(spawn);
-        //todo GameManager.OnRestart startcoroutine
     }
 
     private IEnumerator Spawn()
     {
-        yield return _waitUntilGameStart;
         while (true)
         {
+            yield return _waitUntilGamePlaying;
             Enemy enemy = enemyPrefab.Get();
             enemy.Movement.Ready();
             enemy.GetComponent<EnemyDamage>().OnEnemyDestroyed += HandleEnemyDestroyed;
