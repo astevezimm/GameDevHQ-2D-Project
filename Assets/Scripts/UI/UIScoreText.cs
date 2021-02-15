@@ -5,14 +5,15 @@ public class UIScoreText : MonoBehaviour
 {
     private TextMeshProUGUI _scoreText;
     private int _score;
-    private int _multiplier = 1;
+    private int _multiplier;
 
     private void Awake()
     {
         _scoreText = GetComponent<TextMeshProUGUI>();
         EnemySpawnManager.OnEnemyDestroyed += HandleEnemyDestroyed;
         EnemySpawnManager.OnEnemyLeftScreen += HandleEnemyLeftScreen;
-        GameManager.OnGameStart += () => gameObject.SetActive(true);
+        GameManager.OnGameStart += HandleGameStart;
+        PlayerDeathState.OnMainMenu += () => gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -25,6 +26,14 @@ public class UIScoreText : MonoBehaviour
 
     private void HandleEnemyLeftScreen()
     {
+        _multiplier = 1;
+        UpdateScoreText();
+    }
+
+    private void HandleGameStart()
+    {
+        gameObject.SetActive(true);
+        _score = 0;
         _multiplier = 1;
         UpdateScoreText();
     }

@@ -65,14 +65,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Quit"",
-                    ""type"": ""Button"",
-                    ""id"": ""300677b5-a6b3-4559-a146-5a492ff4d9d7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -240,17 +232,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""DontRestart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""40eb2fed-71a7-4082-92e7-c9428213d0c3"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Quit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -277,7 +258,6 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Main_Pause = m_Main.FindAction("Pause", throwIfNotFound: true);
         m_Main_Restart = m_Main.FindAction("Restart", throwIfNotFound: true);
         m_Main_DontRestart = m_Main.FindAction("DontRestart", throwIfNotFound: true);
-        m_Main_Quit = m_Main.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -333,7 +313,6 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Main_Pause;
     private readonly InputAction m_Main_Restart;
     private readonly InputAction m_Main_DontRestart;
-    private readonly InputAction m_Main_Quit;
     public struct MainActions
     {
         private @Controls m_Wrapper;
@@ -344,7 +323,6 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Main_Pause;
         public InputAction @Restart => m_Wrapper.m_Main_Restart;
         public InputAction @DontRestart => m_Wrapper.m_Main_DontRestart;
-        public InputAction @Quit => m_Wrapper.m_Main_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -372,9 +350,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @DontRestart.started -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
                 @DontRestart.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
                 @DontRestart.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
-                @Quit.started -= m_Wrapper.m_MainActionsCallbackInterface.OnQuit;
-                @Quit.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnQuit;
-                @Quit.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -397,9 +372,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @DontRestart.started += instance.OnDontRestart;
                 @DontRestart.performed += instance.OnDontRestart;
                 @DontRestart.canceled += instance.OnDontRestart;
-                @Quit.started += instance.OnQuit;
-                @Quit.performed += instance.OnQuit;
-                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -421,6 +393,5 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
         void OnDontRestart(InputAction.CallbackContext context);
-        void OnQuit(InputAction.CallbackContext context);
     }
 }

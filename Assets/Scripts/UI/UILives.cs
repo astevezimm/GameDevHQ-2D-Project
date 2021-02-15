@@ -12,6 +12,7 @@ public class UILives : MonoBehaviour
         _livesImage = GetComponent<Image>();
         PlayerDamage.OnLivesChanged += HandleLivesChanged;
         GameManager.OnGameStart += () => gameObject.SetActive(true);
+        PlayerDeathState.OnMainMenu += () => gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 

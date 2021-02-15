@@ -4,8 +4,7 @@ public class UIMainMenu : MonoBehaviour
 {
     private void Awake()
     {
-        GameManager.OnGameStart += HandleGameStart;
+        GameManager.OnGameStart += () => gameObject.SetActive(false);
+        PlayerDeathState.OnMainMenu += () => gameObject.SetActive(true);
     }
-
-    private void HandleGameStart() => gameObject.SetActive(false);
 }

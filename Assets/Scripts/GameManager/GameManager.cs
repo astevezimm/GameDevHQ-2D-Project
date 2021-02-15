@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         
         PlayerDeathState playerDeathState = new PlayerDeathState();
         playerDeathState.OnPlayerDeath += () => OnGameStop?.Invoke();
+        PlayerDeathState.OnRestart += () => OnGameStart?.Invoke();
 
         _stateMachine.Set(mainMenuState);
         _stateMachine.AddTransition(
@@ -29,6 +30,10 @@ public class GameManager : MonoBehaviour
             playingState, pauseState, (() => PauseState.Paused));
         _stateMachine.AddTransition(
             pauseState, playingState, (() => !PauseState.Paused));
+        _stateMachine.AddTransition(
+            playerDeathState, playingState, () => PlayerDeathState.RestartFlag);
+        _stateMachine.AddTransition(
+            playerDeathState, mainMenuState, () => PlayerDeathState.MainMenuFlag);
         _stateMachine.AddTransition(
             playingState, playerDeathState, () => PlayerDamage.PlayerDead);
     }
@@ -50,6 +55,20 @@ public class GameManager : MonoBehaviour
             PauseState.Paused = true;
         else if (StateMachine.CurrentState.GetType() == typeof(PauseState))
             PauseState.Paused = false;
+    }
+
+    public void Restart(InputAction.CallbackContext context)
+    {
+        if (!ValidateInputContext(context, typeof(PlayerDeathState)))
+            return;
+        PlayerDeathState.Restart();
+    }
+
+    public void DontRestart(InputAction.CallbackContext context)
+    {
+        if (!ValidateInputContext(context, typeof(PlayerDeathState)))
+            return;
+        PlayerDeathState.MainMenu();
     }
 
     private bool ValidateInputContext(InputAction.CallbackContext context, Type type)

@@ -11,11 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private Transform _transform;
     private float _speed;
 
-    private void Start()
+    private void Awake()
     {
         _transform = transform;
         _speed = regularSpeed;
-        Reset();
+        GameManager.OnGameStart += Reset;
     }
 
     private void Update()

@@ -11,8 +11,14 @@ public class PlayerDamage : MonoBehaviour
     private static PlayerDamage _instance;
 
     private bool _shield = false;
+    private int _startingLives;
 
-    private void Awake() => _instance = this;
+    private void Awake()
+    {
+        _instance = this;
+        _startingLives = lives;
+        GameManager.OnGameStart += HandleGameStart;
+    }
 
     public static bool PlayerDead => _instance.lives <= 0;
 
@@ -34,5 +40,11 @@ public class PlayerDamage : MonoBehaviour
     {
         _shield = false;
         OnShieldChanged?.Invoke(false);
+    }
+
+    private void HandleGameStart()
+    {
+        lives = _startingLives;
+        OnLivesChanged?.Invoke(lives);
     }
 }
