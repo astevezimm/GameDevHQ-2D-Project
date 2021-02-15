@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class StateMachine
 {
-    public IState CurrentState { get; private set; }
+    public static IState CurrentState { get; private set; }
 
     private readonly Dictionary<IState, List<StateTransition>> _transitions =
         new Dictionary<IState, List<StateTransition>>();

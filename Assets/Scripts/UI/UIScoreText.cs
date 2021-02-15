@@ -12,6 +12,8 @@ public class UIScoreText : MonoBehaviour
         _scoreText = GetComponent<TextMeshProUGUI>();
         EnemySpawnManager.OnEnemyDestroyed += HandleEnemyDestroyed;
         EnemySpawnManager.OnEnemyLeftScreen += HandleEnemyLeftScreen;
+        GameManager.OnGameStart += () => gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     private void HandleEnemyDestroyed()
@@ -26,6 +28,6 @@ public class UIScoreText : MonoBehaviour
         _multiplier = 1;
         UpdateScoreText();
     }
-    
+
     private void UpdateScoreText() => _scoreText.text = $"Score: {_score} (X{_multiplier})";
 }

@@ -25,6 +25,8 @@ public class PowerUp : PooledObject<PowerUp>
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag("Player"))
+            return;
         _specs.Behaviour.Activate(other, _specs.CoolDown);
         Return();
     }

@@ -11,10 +11,12 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private float interval = 5;
 
     private WaitForSeconds _waitForSeconds;
+    private WaitUntil _waitUntilGameStart;
 
     private void Start()
     {
         _waitForSeconds = new WaitForSeconds(interval);
+        _waitUntilGameStart = new WaitUntil(() => GameManager.Playing);
         Coroutine spawn = StartCoroutine(Spawn());
         GameManager.OnPlayerDeath += () => StopCoroutine(spawn);
         //todo GameManager.OnRestart startcoroutine
@@ -22,6 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     private IEnumerator Spawn()
     {
+        yield return _waitUntilGameStart;
         while (true)
         {
             Enemy enemy = enemyPrefab.Get();

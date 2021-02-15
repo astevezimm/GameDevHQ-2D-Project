@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         GameManager.OnPlayerDeath += () => gameObject.SetActive(false);
+        GameManager.OnGameStart += () => gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public static Vector2 Movement => _playerInput.actions["Movement"].ReadValue<Vector2>();

@@ -11,6 +11,8 @@ public class UILives : MonoBehaviour
     {
         _livesImage = GetComponent<Image>();
         PlayerDamage.OnLivesChanged += HandleLivesChanged;
+        GameManager.OnGameStart += () => gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     private void HandleLivesChanged(int lives) => _livesImage.sprite = lifeSprites[lives];

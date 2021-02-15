@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     public static event Action OnPlayerDeath;
     public static event Action OnGameStart;
     
-    private StateMachine _stateMachine = new StateMachine();
+    private readonly StateMachine _stateMachine = new StateMachine();
+
+    public static bool Playing => StateMachine.CurrentState.GetType() == typeof(PlayingState);
 
     private void Awake()
     {
@@ -42,6 +44,6 @@ public class GameManager : MonoBehaviour
 
     private bool ValidateInputContext(InputAction.CallbackContext context, Type type)
     {
-        return context.performed && _stateMachine.CurrentState.GetType() == type;
+        return context.performed && StateMachine.CurrentState.GetType() == type;
     }
 }

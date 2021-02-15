@@ -9,12 +9,14 @@ public class PowerUpSpawnManager : MonoBehaviour
     [SerializeField] private float maxInterval = 7;
     [SerializeField] private List<PowerUpObj> powerUps;
 
-    private WaitUntil _waitUntil;
+    private WaitUntil _waitUntilRandomInterval;
+    private WaitUntil _waitUntilGameStart;
     private float _nextSpawnTime = 7;
 
     private void Start()
     {
-        _waitUntil = new WaitUntil(RandomInterval);
+        _waitUntilRandomInterval = new WaitUntil(RandomInterval);
+        _waitUntilGameStart = new WaitUntil(() => GameManager.Playing);
         Coroutine spawn = StartCoroutine(Spawn());
         GameManager.OnPlayerDeath += () => StopCoroutine(spawn);
         //todo GameManager.OnRestart startcoroutine
@@ -22,9 +24,10 @@ public class PowerUpSpawnManager : MonoBehaviour
 
     private IEnumerator Spawn()
     {
+        yield return _waitUntilGameStart;
         while (true)
         {
-            yield return _waitUntil;
+            yield return _waitUntilRandomInterval;
             PowerUp powerUp = powerUpPrefab.Get();
             powerUp.Ready(powerUps[Random.Range(0, powerUps.Count)]);
         }
