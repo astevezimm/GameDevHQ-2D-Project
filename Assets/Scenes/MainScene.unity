@@ -410,10 +410,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e258267d-7a61-4617-9329-cd755d991cb2
     m_ActionName: Main/DontRestart[/Keyboard/n]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 300677b5-a6b3-4559-a146-5a492ff4d9d7
-    m_ActionName: Main/Quit[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Main
@@ -1622,6 +1618,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 776929167, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1856984034428370321, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1677,6 +1677,10 @@ PrefabInstance:
     - target: {fileID: 1856984034428370325, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778741719499113837, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cb73246c473f3d4a92bf7242a1547ff, type: 3}
