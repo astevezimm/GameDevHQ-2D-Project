@@ -1,0 +1,9 @@
+todo press shift to use speed boost
+todo explode animation on player death
+todo add controller
+    according to scheme, change y/n to a/b & shift to a
+todo make shields blink before turning off
+rest of tutorial content
+    todo post processing
+    todo audio
+    todo deploy to simmer.io    
