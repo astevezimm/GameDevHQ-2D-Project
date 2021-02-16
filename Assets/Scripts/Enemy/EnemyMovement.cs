@@ -12,21 +12,26 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float xSpawnRange = 9.5f;
     
     private Transform _transform;
+    private bool _damaged;
     
-    private void Awake() => _transform = transform;
+    private void Awake()
+    {
+        _transform = transform;
+        GetComponent<EnemyDamage>().OnEnemyDestroyed += damage => _damaged = true;
+    }
 
     private void Update()
     {
         _transform.Translate(Vector2.down * (speed * Time.deltaTime));
-        if (_transform.position.y < bottom)
-        {
-            OnEnemyLeftScreen?.Invoke(this);
-            Ready();
-        }
+        if (_damaged || _transform.position.y >= bottom)
+            return;
+        OnEnemyLeftScreen?.Invoke(this);
+        Ready();
     }
 
     public void Ready()
     {
+        _damaged = false;
         _transform.position = new Vector3(RandX(), top);
     }
 
