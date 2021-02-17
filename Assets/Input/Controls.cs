@@ -65,6 +65,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SpeedBoost"",
+                    ""type"": ""Button"",
+                    ""id"": ""709d591d-f34f-4696-912a-0f98a73f2486"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -140,7 +148,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -151,7 +159,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -162,7 +170,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -173,10 +181,21 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7d10a29-be87-4c29-8c03-f89b79da365e"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -185,6 +204,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b9eb7e3-4e9b-45c7-8d1a-ed83cba927f2"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -202,11 +232,44 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""55f54f0c-bed8-4db1-aaa1-294636cc0bb7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c19316de-2d10-4b56-9acc-5b23c3792b4d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""dbb2fd7c-8852-418e-8336-78587f62e31a"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2290e556-3e30-4108-b0ba-31c2e7bbc4c0"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -224,12 +287,56 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""76189c36-1d22-428a-9046-62f975ed83d7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""12ca535e-56bc-46bf-ac46-80d1eddc298f"",
                     ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""DontRestart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""010f3af8-3843-4d0e-bd40-971219919ebe"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""DontRestart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d48e25d-739b-4eb8-9f8e-0ecad35f5365"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SpeedBoost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f6a579d-20d8-4e86-b2f1-86cd77943d06"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SpeedBoost"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -247,6 +354,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -258,6 +376,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Main_Pause = m_Main.FindAction("Pause", throwIfNotFound: true);
         m_Main_Restart = m_Main.FindAction("Restart", throwIfNotFound: true);
         m_Main_DontRestart = m_Main.FindAction("DontRestart", throwIfNotFound: true);
+        m_Main_SpeedBoost = m_Main.FindAction("SpeedBoost", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -313,6 +432,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Main_Pause;
     private readonly InputAction m_Main_Restart;
     private readonly InputAction m_Main_DontRestart;
+    private readonly InputAction m_Main_SpeedBoost;
     public struct MainActions
     {
         private @Controls m_Wrapper;
@@ -323,6 +443,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Main_Pause;
         public InputAction @Restart => m_Wrapper.m_Main_Restart;
         public InputAction @DontRestart => m_Wrapper.m_Main_DontRestart;
+        public InputAction @SpeedBoost => m_Wrapper.m_Main_SpeedBoost;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -350,6 +471,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @DontRestart.started -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
                 @DontRestart.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
                 @DontRestart.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnDontRestart;
+                @SpeedBoost.started -= m_Wrapper.m_MainActionsCallbackInterface.OnSpeedBoost;
+                @SpeedBoost.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnSpeedBoost;
+                @SpeedBoost.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnSpeedBoost;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -372,6 +496,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @DontRestart.started += instance.OnDontRestart;
                 @DontRestart.performed += instance.OnDontRestart;
                 @DontRestart.canceled += instance.OnDontRestart;
+                @SpeedBoost.started += instance.OnSpeedBoost;
+                @SpeedBoost.performed += instance.OnSpeedBoost;
+                @SpeedBoost.canceled += instance.OnSpeedBoost;
             }
         }
     }
@@ -385,6 +512,15 @@ public class @Controls : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     public interface IMainActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -393,5 +529,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
         void OnDontRestart(InputAction.CallbackContext context);
+        void OnSpeedBoost(InputAction.CallbackContext context);
     }
 }
