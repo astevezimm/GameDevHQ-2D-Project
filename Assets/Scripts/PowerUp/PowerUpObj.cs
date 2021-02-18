@@ -4,7 +4,6 @@ using UnityEngine;
 public class PowerUpObj : ScriptableObject
 {
     private static readonly PowerUpBehaviour TripleShotBehaviour = new TripleShotBehaviour();
-    private static readonly PowerUpBehaviour SpeedBehaviour = new SpeedBehaviour();
     private static readonly PowerUpBehaviour ShieldBehaviour = new ShieldBehaviour();
     
     [SerializeField] private float speed;
@@ -22,7 +21,6 @@ public class PowerUpObj : ScriptableObject
             return type switch
             {
                 PowerUpType.TripleShot => TripleShotBehaviour,
-                PowerUpType.Speed => SpeedBehaviour,
                 PowerUpType.Shield => ShieldBehaviour,
                 _ => null
             };

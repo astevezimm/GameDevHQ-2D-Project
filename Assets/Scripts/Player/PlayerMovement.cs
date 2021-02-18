@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
         _transform = transform;
         _speed = regularSpeed;
         GameManager.OnGameStart += Reset;
+        PlayerController.OnSpeedBoostActivate += () => _speed = boostedSpeed;
+        PlayerController.OnSpeedBoostDeactivate += () => _speed = regularSpeed;
     }
 
     private void Update()
@@ -35,8 +37,4 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private float ClampY() => Mathf.Clamp(_transform.position.y, minY, maxY);
-
-    public void ActivateSpeed() => _speed = boostedSpeed;
-
-    public void DeactivateSpeed() => _speed = regularSpeed;
 }

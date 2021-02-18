@@ -39,4 +39,9 @@ public class PowerUp : PooledObject<PowerUp>
     }
 
     private float RandX() => Random.Range(-xSpawnRange, xSpawnRange);
+    
+    private void OnEnable() => GameManager.OnGameStart += HandleGameStart;
+    private void OnDisable() => GameManager.OnGameStart -= HandleGameStart;
+
+    private void HandleGameStart() => Return();
 }

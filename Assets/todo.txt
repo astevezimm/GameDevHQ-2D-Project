@@ -1,5 +1,3 @@
-todo clear level on restart
-todo press shift to use speed boost
 todo explode animation on player death
 todo according to scheme, change in UI y/n to a/b & shift to a, any key to start or A
 todo make shields blink before turning off
