@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         GameManager.OnGameStart += () => gameObject.SetActive(true);
+        //todo explode animation on player death
         GameManager.OnGameStop += () => gameObject.SetActive(false);
         gameObject.SetActive(false);
     }

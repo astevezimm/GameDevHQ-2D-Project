@@ -1,6 +1,4 @@
-todo explode animation on player death
 todo according to scheme, change in UI y/n to a/b & shift to a, any key to start or A
-todo make shields blink before turning off
 rest of tutorial content
     todo post processing
     todo audio
